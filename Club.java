@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  * Store details of club memberships.
  * 
@@ -6,14 +7,14 @@
  */
 public class Club
 {
-    // Define any necessary fields here ...
+    private ArrayList<Membership> members;
     
     /**
      * Constructor for objects of class Club
      */
     public Club()
     {
-        // Initialise any fields here ...
+       members = new ArrayList<>();
         
     }
 
@@ -23,6 +24,7 @@ public class Club
      */
     public void join(Membership member)
     {
+        
     }
 
     /**
@@ -31,6 +33,34 @@ public class Club
      */
     public int numberOfMembers()
     {
-        return 0;
+        return members.size();
     }
+    
+    public int joinedInMonth(int month){
+     if(month < 1 || month > 12)
+     {
+        System.out.println("Month cannot be outside of range 1-12");
+        return 0;
+     }
+     else {
+       int count = 0;
+       for ( Membership m : members)
+       {if(m.getMonth() == month)
+           {
+            count++;
+           }
+       }
+       return count;
+     }
+    }
+    
+    // public ArrayList<Membership> purge(int month,int year)
+    // {
+        // if(joinedInMonth(_month_)()>0)
+        // {
+            
+        // } 
+        // return null;
+    // }
+    
 }
